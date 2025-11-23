@@ -1,0 +1,36 @@
+<section id="gift" class="section-padding">
+    <div class="container">
+        <h2 class="section-title">Gift Registry</h2>
+        <div class="divider"></div>
+        <p class="intro">
+            Your presence is the greatest gift of all. However, should you wish to honor us with a gift,
+            a monetary contribution towards our future home would be deeply appreciated.
+        </p>
+
+
+        <div class="gift-grid">
+            <!-- Bank -->
+            <div class="gift-card">
+                <div class="icon">🏦</div>
+                <h3 class="card-title">Bank Transfer</h3>
+                <p class="label">First National Bank</p>
+                <p class="account-number">1234 5678 9012</p>
+                <p class="details">Account Name: A & J Wedding Fund</p>
+                <button (click)="copyNumber()" class="copy-btn">Copy Number</button>
+            </div>
+
+
+            <!-- Online -->
+            <div class="gift-card">
+                <div class="icon">🎁</div>
+                <h3 class="card-title"> Wishlist</h3>
+                <p class="details">Browse our curated list of home essentials.</p>
+                <button (click)="showModal = true" class="visit-btn" >Visit Registry</button>
+            </div>
+        </div>
+    </div>
+
+     <app-wish-list-modal *ngIf="showModal" (close)="showModal = false"
+        >
+    </app-wish-list-modal>
+</section>

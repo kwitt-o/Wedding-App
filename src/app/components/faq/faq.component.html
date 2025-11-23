@@ -1,0 +1,19 @@
+<section id="faq" class="section-padding">
+    <div class="container">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <div class="divider"></div>
+
+
+        <div class="faq-list">
+            <div *ngFor="let item of faqs; let i = index" class="faq-item">
+                <button (click)="toggle(i)" class="question-btn">
+                    <span class="question-text">{{ item.question }}</span>
+                    <span class="toggle-icon" [class.open]="item.isOpen">+</span>
+                </button>
+                <div class="answer-wrapper" [class.open]="item.isOpen">
+                    <p class="answer-text">{{ item.answer }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

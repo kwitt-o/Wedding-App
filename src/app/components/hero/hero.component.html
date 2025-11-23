@@ -1,0 +1,47 @@
+ <section id="hero" class="hero-section">
+      <!-- Background Carousel -->
+      <div class="carousel">
+        <div *ngFor="let img of images; let i = index"
+             class="slide"
+             [class.active]="currentSlide === i"
+             [style.background-image]="'url(' + img + ')'">
+        </div>
+        <div class="overlay"></div>
+      </div>
+
+
+      <!-- Content -->
+      <div class="hero-content">
+        <p class="pre-title animate-up">We are tying the knot</p>
+        <h1 class="main-title animate-up delay-1">
+          Adrian <span class="ampersand">&</span> Julianne
+        </h1>
+        <p class="hashtag animate-up delay-2">#AdrianAndJulianne2025</p>
+       
+        <!-- Countdown -->
+        <div class="countdown animate-up delay-3">
+          <div class="time-block">
+            <div class="number">{{ countdown.days }}</div>
+            <div class="label">Days</div>
+          </div>
+          <div class="time-block">
+            <div class="number">{{ countdown.hours }}</div>
+            <div class="label">Hours</div>
+          </div>
+          <div class="time-block">
+            <div class="number">{{ countdown.minutes }}</div>
+            <div class="label">Mins</div>
+          </div>
+          <div class="time-block">
+            <div class="number">{{ countdown.seconds }}</div>
+            <div class="label">Secs</div>
+          </div>
+        </div>
+
+
+        <div class="cta-group animate-up delay-4">
+          <button (click)="scrollToRSVP.emit()" class="btn btn-primary">RSVP Now</button>
+          <button (click)="scrollToGift.emit()" class="btn btn-outline">Gifting</button>
+        </div>
+      </div>
+    </section>

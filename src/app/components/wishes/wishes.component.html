@@ -1,0 +1,129 @@
+<!-- <section id="wishes" class="section-padding">
+    <div class="container">
+        <h2 class="section-title">Well Wishes</h2>
+        <div class="divider"></div>
+        <p class="subtitle">Leave us a note for our guestbook. We'd love to read your warm words.</p>
+
+
+        <div class="action-area">
+            <button (click)="showModal = true" class="post-btn">
+                <span>✏️</span> Post a Wish
+            </button>
+        </div>
+
+
+        <div class="wishes-grid">
+            <div *ngFor="let wish of visibleWishes()" class="wish-card">
+                <div class="quote-mark">"</div>
+                <p class="message">{{ wish.message }}</p>
+                <div class="author-info">
+                    <div class="avatar">{{ wish.name.charAt(0) }}</div>
+                    <div>
+                        <h5 class="author-name">{{ wish.name }}</h5>
+                        <p class="relationship">{{ wish.relationship }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div *ngIf="wishes().length === 0" class="empty-state">
+                Be the first to wish us well!
+            </div>
+        </div>
+
+
+        <div *ngIf="wishes().length > 6" class="view-all-wrapper">
+            <button (click)="toggleViewAll()" class="view-all-link">
+                {{ showAll ? 'View Less' : 'View All Messages' }}
+            </button>
+        </div>
+    </div>
+
+
+    <app-wish-modal *ngIf="showModal" [isSubmitting]="isSubmitting" (close)="showModal = false"
+        (submitWish)="handleWishSubmit($event)">
+    </app-wish-modal>
+</section> -->
+
+
+<section id="wishes" class="section-padding">
+    <div class="container">
+        <h2 class="section-title">Well Wishes</h2>
+        <div class="divider"></div>
+        <p class="subtitle">Leave us a note for our guestbook. We'd love to read your warm words.</p>
+
+
+        <div class="action-area">
+            <button (click)="showModal = true" class="post-btn">
+                <span>✏️</span> Post a Wish
+            </button>
+        </div>
+
+
+        <div class="wishes-grid">
+            <div class="wish-card">
+                <div class="quote-mark">"</div>
+                <p class="message">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi alias vero sequi
+                    temporibus soluta quis molestias dolore nobis voluptates odit.</p>
+                <div class="author-info">
+                    <div class="avatar">o</div>
+                    <div>
+                        <h5 class="author-name">Olorunnifemi Jayeola</h5>
+                        <p class="relationship">Friend</p>
+                    </div>
+                </div>
+            </div>
+            <div class="wish-card">
+                <div class="quote-mark">"</div>
+                <p class="message">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi alias vero sequi
+                    temporibus soluta quis molestias dolore nobis voluptates odit.</p>
+                <div class="author-info">
+                    <div class="avatar">o</div>
+                    <div>
+                        <h5 class="author-name">Olorunnifemi Jayeola</h5>
+                        <p class="relationship">Friend</p>
+                    </div>
+                </div>
+            </div>
+            <div class="wish-card">
+                <div class="quote-mark">"</div>
+                <p class="message">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi alias vero sequi
+                    temporibus soluta quis molestias dolore nobis voluptates odit.</p>
+                <div class="author-info">
+                    <div class="avatar">o</div>
+                    <div>
+                        <h5 class="author-name">Olorunnifemi Jayeola</h5>
+                        <p class="relationship">Friend</p>
+                    </div>
+                </div>
+            </div>
+            <div class="wish-card">
+                <div class="quote-mark">"</div>
+                <p class="message">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi alias vero sequi
+                    temporibus soluta quis molestias dolore nobis voluptates odit.</p>
+                <div class="author-info">
+                    <div class="avatar">O</div>
+                    <div>
+                        <h5 class="author-name">Olorunnifemi Jayeola</h5>
+                        <p class="relationship">Friend</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div class="empty-state">
+                Be the first to wish us well!
+            </div> -->
+        </div>
+
+
+        <div class="view-all-wrapper">
+            <button (click)="toggleViewAll()" class="view-all-link">
+               
+            </button>
+        </div>
+    </div>
+
+
+    <app-wish-modal *ngIf="showModal" [isSubmitting]="isSubmitting" (close)="showModal = false"
+        >
+    </app-wish-modal>
+</section>

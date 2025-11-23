@@ -1,0 +1,187 @@
+<!-- <section id="rsvp" class="section-padding">
+    <div class="container">
+        <div class="rsvp-card">
+            <div class="image-side">
+                <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=600&q=80"
+                    alt="Decor">
+                <div class="overlay-text">
+                    <h3>RSVP</h3>
+                </div>
+            </div>
+
+
+            <div class="form-side">
+                <h2 class="title">Will You Join Us?</h2>
+                <p class="subtitle">Kindly respond by September 1st, 2025</p>
+
+
+                <form [formGroup]="rsvpForm" (ngSubmit)="onSubmit()" class="form-content">
+                    <div class="row">
+                        <div class="field">
+                            <label>First Name</label>
+                            <input formControlName="firstName" type="text">
+                            <div *ngIf="touchedAndInvalid('firstName')" class="error">Required</div>
+                        </div>
+                        <div class="field">
+                            <label>Last Name</label>
+                            <input formControlName="lastName" type="text">
+                            <div *ngIf="touchedAndInvalid('lastName')" class="error">Required</div>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="field">
+                            <label>Email</label>
+                            <input formControlName="email" type="email">
+                            <div *ngIf="touchedAndInvalid('email')" class="error">Valid email required</div>
+                        </div>
+                        <div class="field">
+                            <label>Phone</label>
+                            <input formControlName="phone" type="tel">
+                        </div>
+                    </div>
+
+
+                    <div class="field">
+                        <label class="group-label">Events Attending</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" formControlName="attendingTrad">
+                                <span>Traditional Wedding</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" formControlName="attendingWhite">
+                                <span>White Wedding Ceremony & Reception</span>
+                            </label>
+                        </div>
+                    </div>
+
+
+                    <div class="field">
+                        <label>Relationship</label>
+                        <select formControlName="relationship">
+                            <option value="bride_guest">Guest of the Bride</option>
+                            <option value="groom_guest">Guest of the Groom</option>
+                            <option value="mutual">Mutual Friend</option>
+                            <option value="family">Family</option>
+                        </select>
+                    </div>
+
+
+                    <button type="submit" [disabled]="rsvpForm.invalid || isSubmitting" class="submit-btn">
+                        {{ isSubmitting ? 'Sending...' : 'Confirm Attendance' }}
+                    </button>
+
+
+                    <p *ngIf="success" class="success-msg">Thank you! Your RSVP has been received.</p>
+                    <p *ngIf="error" class="error-msg">Something went wrong. Please try again.</p>
+                </form>
+            </div>
+        </div>
+    </div>
+</section> -->
+
+
+<section id="rsvp" class="section-padding">
+    <div class="container">
+        <div class="rsvp-card">
+            <!-- Image Side (Desktop) -->
+            <div class="image-side">
+                <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=600&q=80"
+                    alt="Decor">
+                <div class="overlay-text">
+                    <h3>RSVP</h3>
+                </div>
+            </div>
+
+
+            <!-- Form Side -->
+            <div class="form-side">
+                <h2 class="title">Will You Join Us?</h2>
+                <!-- <p class="subtitle">Kindly respond by September 1st, 2025</p> -->
+
+
+                <form [formGroup]="rsvpForm" class="form-content">
+                    <div class="row">
+                        <div class="field">
+                            <label>First Name</label>
+                            <input formControlName="firstName" type="text">
+                            <div *ngIf="touchedAndInvalid('firstName')" class="error">Required</div>
+                        </div>
+                        <div class="field">
+                            <label>Last Name</label>
+                            <input formControlName="lastName" type="text">
+                            <div *ngIf="touchedAndInvalid('lastName')" class="error">Required</div>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="field">
+                            <label>Email</label>
+                            <input formControlName="email" type="email">
+                            <div *ngIf="touchedAndInvalid('email')" class="error">Valid email required</div>
+                        </div>
+                        <div class="field">
+                            <label>Phone</label>
+                            <input formControlName="phone" type="tel">
+                        </div>
+                    </div>
+
+
+                    <div class="field">
+                        <label>Address</label>
+                        <input formControlName="Address" type="text">
+                    </div>
+
+                    <div class="row">
+                        <div class="field">
+                            <label>Relationship</label>
+                            <select formControlName="relationship">
+                                <option value="bride_guest">Guest of the Bride</option>
+                                <option value="groom_guest">Guest of the Groom</option>
+                                <option value="mutual">Mutual Friend</option>
+                                <option value="family">Family</option>
+                                <option value="family">Colleague at work</option>
+                            </select>
+                        </div>
+
+                        <div class="field">
+                            <label>Coming For?</label>
+                            <select formControlName="relationship">
+                                <option value="bride_guest">Bride</option>
+                                <option value="groom_guest">Groom</option>
+                                <option value="mutual">Both</option>
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <div class="field">
+                        <label class="group-label">Events Attending</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" formControlName="attendingTrad">
+                                <span>Traditional Wedding</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" formControlName="attendingWhite">
+                                <span>White Wedding Ceremony & Reception</span>
+                            </label>
+                        </div>
+                    </div>
+
+
+                    <button type="submit" [disabled]="rsvpForm.invalid || isSubmitting" class="submit-btn">
+                        {{ isSubmitting ? 'Sending...' : 'Confirm Attendance' }}
+                    </button>
+
+
+                    <p *ngIf="success" class="success-msg">Thank you! Your RSVP has been received.</p>
+                    <p *ngIf="error" class="error-msg">Something went wrong. Please try again.</p>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,104 @@
+ .schedule-section {
+     padding: 5rem 0;
+     background-color: var(--color-charcoal);
+     position: relative;
+     color: white;
+ }
+
+ .pattern-overlay {
+     position: absolute;
+     inset: 0;
+     opacity: 0.1;
+     background-image: radial-gradient(#ffffff 1px, transparent 1px);
+     background-size: 20px 20px;
+ }
+
+
+ .container {
+     max-width: 1000px;
+     margin: 0 auto;
+     padding: 0 1.5rem;
+     position: relative;
+     z-index: 1;
+ }
+
+ .section-title {
+     font-family: 'Playfair Display', serif;
+     font-size: 2.5rem;
+     text-align: center;
+     margin-bottom: 1rem;
+ }
+
+ .text-white {
+     color: white;
+ }
+
+
+ .divider {
+     width: 6rem;
+     height: 4px;
+     background-color: var(--color-gold-400);
+     margin: 0 auto 4rem auto;
+ }
+
+
+ .events-grid {
+     display: grid;
+     grid-template-columns: 1fr;
+     gap: 2rem;
+ }
+
+
+ @media (min-width: 768px) {
+     .events-grid {
+         grid-template-columns: 1fr 1fr;
+     }
+ }
+
+
+ .event-card {
+     border: 1px solid rgba(212, 175, 55, 0.3);
+     padding: 3rem 2rem;
+     text-align: center;
+     transition: background-color 0.3s;
+ }
+
+
+ .event-card:hover {
+     background-color: rgba(255, 255, 255, 0.05);
+ }
+
+
+ .icon {
+     font-size: 2.5rem;
+     margin-bottom: 1rem;
+     color: var(--color-gold-400);
+ }
+
+
+ .event-title {
+     font-family: 'Playfair Display', serif;
+     font-size: 1.875rem;
+     margin-bottom: 0.5rem;
+ }
+
+
+ .event-date {
+     color: var(--color-gold-200);
+     text-transform: uppercase;
+     letter-spacing: 0.1em;
+     font-size: 0.875rem;
+     margin-bottom: 1.5rem;
+ }
+
+
+ .event-details {
+     color: #d1d5db;
+     font-weight: 300;
+     line-height: 1.6;
+ }
+
+ .event-details strong {
+     color: white;
+     font-weight: 600;
+ }

@@ -1,0 +1,29 @@
+<div class="wishlist-modal" (click)="closeModal()">
+    <div class="wishlist-modal__container" (click)="$event.stopPropagation()">
+
+        <!-- Header -->
+        <button class="wishlist-modal__close" (click)="closeModal()" aria-label="Close modal">×</button>
+        <h3 class="wishlist-modal__title">Gift Wishlist</h3>
+        <div class="wishlist-modal__divider"></div>
+        <p class="wishlist-modal__subtitle">
+            Your presence is truly our gift. If you would still love to bless us further, here are curated gift ideas
+            dear to us.
+        </p>
+
+
+        <!-- List -->
+        <div class="wishlist-modal__list">
+            <div *ngFor="let item of wishlistItems" class="wishlist-modal__item">
+                <div class="wishlist-modal__item-content">
+                    <h4 class="wishlist-modal__item-name">{{ item.name }}</h4>
+                    <p *ngIf="item.description" class="wishlist-modal__item-desc">{{ item.description }}</p>
+                </div>
+                <a [href]="item.link" target="_blank" rel="noopener noreferrer" class="wishlist-modal__button">
+                    View / Purchase
+                </a>
+            </div>
+        </div>
+
+
+    </div>
+</div>

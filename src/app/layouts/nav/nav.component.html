@@ -1,0 +1,30 @@
+<nav [class.scrolled]="isScrolled" class="navbar">
+    <div class="container nav-container">
+        <div class="logo">
+            <span class="accent">A</span> & <span class="accent">J</span>
+        </div>
+
+        <!-- Desktop Menu -->
+        <div class="desktop-menu">
+            <button *ngFor="let item of navItems" (click)="scrollTo(item.id)" class="nav-link">
+                {{ item.label }}
+            </button>
+        </div>
+
+
+        <!-- Mobile Menu Button -->
+        <button (click)="toggleMobileMenu()" class="mobile-toggle">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+    </div>
+
+
+    <!-- Mobile Menu Dropdown -->
+    <div class="mobile-menu" [class.open]="mobileMenuOpen">
+        <button *ngFor="let item of navItems" (click)="scrollTo(item.id); toggleMobileMenu()" class="mobile-link">
+            {{ item.label }}
+        </button>
+    </div>
+</nav>
