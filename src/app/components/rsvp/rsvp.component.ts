@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { RsvpService } from '../../services/rsvp.service';
+import { Rsvp } from '../../shared/models/rsvp';
 
 @Component({
   selector: 'app-rsvp',
@@ -15,27 +17,19 @@ export class RsvpComponent {
   error = false;
 
   private fb = inject(FormBuilder);
-  // private auth = inject(getAuth);
-  // private db: any;
-  // private appId: string = 'default';
+  private rsvpService = inject(RsvpService);
 
   constructor() {
-    // const config = getFirebaseConfig();
-    // if (config.apiKey) {
-    //   this.appId = getAppId();
-    //   const app = initializeApp(config);
-    //   this.db = getFirestore(app);
-    // }
-
-
+  
     this.rsvpForm = this.fb.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      phone: [''],
-      attendingTrad: [false],
-      attendingWhite: [false],
-      relationship: ['friend', Validators.required]
+      phone: ['', Validators.required],
+      address: [''],
+      relationship: ['', Validators.required],
+      comingFor: ['', Validators.required],
+      eventAttending: ['', Validators.required],
     });
   }
 
@@ -44,31 +38,32 @@ export class RsvpComponent {
     return control?.touched && control?.invalid;
   }
 
+ async onSubmit() {
+    if (this.rsvpForm.invalid) {
+      this.rsvpForm.markAllAsTouched();
+      return;
+    }
 
-  // async onSubmit() {
-  //   if (this.rsvpForm.invalid || !this.auth.currentUser) return;
+    this.isSubmitting = true;
+    this.success = false;
+    this.error = false;
 
-  //   this.isSubmitting = true;
-  //   this.success = false;
-  //   this.error = false;
+    const rsvpData: Rsvp = {
+      ...this.rsvpForm.value,
+      createdAt: Date.now(),
+    };
 
-
-  //   try {
-  //     await addDoc(collection(this.db, 'artifacts', this.appId, 'public', 'data', 'rsvps'), {
-  //       ...this.rsvpForm.value,
-  //       uid: this.auth.currentUser.uid,
-  //       createdAt: serverTimestamp()
-  //     });
-  //     this.success = true;
-  //     this.rsvpForm.reset();
-  //     setTimeout(() => this.success = false, 5000);
-  //   } catch (e) {
-  //     console.error(e);
-  //     this.error = true;
-  //   } finally {
-  //     this.isSubmitting = false;
-  //   }
-  // }
+    try {
+      await this.rsvpService.submitRsvp(rsvpData);
+      this.success = true;
+      this.rsvpForm.reset();
+    } catch (err) {
+      console.error(err);
+      this.error = true;
+    } finally {
+      this.isSubmitting = false;
+    }
+  }
 
 
 }

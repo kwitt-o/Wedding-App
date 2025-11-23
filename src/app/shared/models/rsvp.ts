@@ -1,6 +1,11 @@
 export interface Rsvp {
-  name: string;
+  firstName: string;
+  lastName: string;
   email: string;
-  attending: boolean;
-  guests: number;
+  phone: string;
+  address?: string;
+  relationship: string;
+  comingFor: string;
+  eventAttending: string;
+  createdAt: number;
 }

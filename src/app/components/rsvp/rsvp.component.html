@@ -102,29 +102,29 @@
                 <!-- <p class="subtitle">Kindly respond by September 1st, 2025</p> -->
 
 
-                <form [formGroup]="rsvpForm" class="form-content">
+                <form [formGroup]="rsvpForm" (ngSubmit)="onSubmit()" class="form-content">
                     <div class="row">
                         <div class="field">
-                            <label>First Name</label>
+                            <label>First Name <span class="required">*</span> </label>
                             <input formControlName="firstName" type="text">
-                            <div *ngIf="touchedAndInvalid('firstName')" class="error">Required</div>
+                            <div *ngIf="touchedAndInvalid('firstName')" class="error">Please enter your first name</div>
                         </div>
                         <div class="field">
-                            <label>Last Name</label>
+                            <label>Last Name <span class="required">*</span> </label>
                             <input formControlName="lastName" type="text">
-                            <div *ngIf="touchedAndInvalid('lastName')" class="error">Required</div>
+                            <div *ngIf="touchedAndInvalid('lastName')" class="error">Please enter your last name</div>
                         </div>
                     </div>
 
 
                     <div class="row">
                         <div class="field">
-                            <label>Email</label>
-                            <input formControlName="email" type="email">
+                            <label>Email <span class="required">*</span> </label>
+                            <input formControlName="email" placeholder="yourname@gmail.com" type="email">
                             <div *ngIf="touchedAndInvalid('email')" class="error">Valid email required</div>
                         </div>
                         <div class="field">
-                            <label>Phone</label>
+                            <label>Phone <span class="required">*</span> </label>
                             <input formControlName="phone" type="tel">
                         </div>
                     </div>
@@ -132,35 +132,33 @@
 
                     <div class="field">
                         <label>Address</label>
-                        <input formControlName="Address" type="text">
+                        <input formControlName="address" type="text">
                     </div>
 
                     <div class="row">
                         <div class="field">
-                            <label>Relationship</label>
-                            <select formControlName="relationship">
-                                <option value="bride_guest">Guest of the Bride</option>
-                                <option value="groom_guest">Guest of the Groom</option>
-                                <option value="mutual">Mutual Friend</option>
-                                <option value="family">Family</option>
-                                <option value="family">Colleague at work</option>
-                            </select>
+                            <label>Relationship <span class="required">*</span> </label>
+                            <input formControlName="relationship" type="text">
                         </div>
 
                         <div class="field">
-                            <label>Coming For?</label>
-                            <select formControlName="relationship">
-                                <option value="bride_guest">Bride</option>
-                                <option value="groom_guest">Groom</option>
-                                <option value="mutual">Both</option>
+                            <label>Coming For? <span class="required">*</span> </label>
+                            <select formControlName="comingFor">
+                                <option value="Bride">Bride</option>
+                                <option value="Groom">Groom</option>
+                                <option value="Both">Both</option>
                             </select>
                         </div>
                     </div>
 
 
                     <div class="field">
-                        <label class="group-label">Events Attending</label>
-                        <div class="checkbox-group">
+                        <label>Event Attending <span class="required">*</span> </label>
+                        <select formControlName="eventAttending">
+                            <option value="Joining">Joining</option>
+                            <option value="Reception">Reception</option>
+                        </select>
+                        <!-- <div class="checkbox-group">
                             <label class="checkbox-label">
                                 <input type="checkbox" formControlName="attendingTrad">
                                 <span>Traditional Wedding</span>
@@ -169,7 +167,7 @@
                                 <input type="checkbox" formControlName="attendingWhite">
                                 <span>White Wedding Ceremony & Reception</span>
                             </label>
-                        </div>
+                        </div> -->
                     </div>
 
 
