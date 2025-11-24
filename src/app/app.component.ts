@@ -19,39 +19,15 @@ import { FooterComponent } from './layouts/footer/footer.component';
 export class AppComponent {
   isScrolled = false;
 
-  // Auth Logic
-  // private auth = inject(getAuth);
-
-
   constructor() {
-    // Initialize Auth
-    // this.initAuth();
-    // Scroll Listener
     window.addEventListener('scroll', this.onWindowScroll.bind(this));
   }
 
-
   ngOnInit() { }
-
-
-  // async initAuth() {
-  //   const token = (window as any).__initial_auth_token;
-  //   try {
-  //     if (token) {
-  //       await signInWithCustomToken(this.auth, token);
-  //     } else {
-  //       await signInAnonymously(this.auth);
-  //     }
-  //   } catch (err) {
-  //     console.error("Auth failed", err);
-  //   }
-  // }
-
 
   onWindowScroll() {
     this.isScrolled = window.scrollY > 50;
   }
-
 
   scrollToSection(id: string) {
     const el = document.getElementById(id);
