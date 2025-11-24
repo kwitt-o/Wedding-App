@@ -8,12 +8,17 @@ import { addDoc, collection } from 'firebase/firestore';
 })
 export class RsvpService {
   private firestore = inject(Firestore);
+  private rsvpCollection = collection(this.firestore, 'rsvps');
 
   constructor() { }
 
   submitRsvp(data: Rsvp) {
+     const rsvpWithTimestamp = {
+      ...data,
+      createdAt: new Date()
+    };
     const rsvpRef = collection(this.firestore, 'rsvps');
-    return addDoc(rsvpRef, data);
+    return addDoc(this.rsvpCollection, rsvpWithTimestamp);
   }
 
 }

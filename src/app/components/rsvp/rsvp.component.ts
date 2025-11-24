@@ -20,12 +20,12 @@ export class RsvpComponent {
   private rsvpService = inject(RsvpService);
 
   constructor() {
-  
+
     this.rsvpForm = this.fb.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      phone: ['', Validators.required],
+      phone: ['', Validators.required, Validators.pattern(/^[0-9]+$/)],
       address: [''],
       relationship: ['', Validators.required],
       comingFor: ['', Validators.required],
@@ -33,12 +33,19 @@ export class RsvpComponent {
     });
   }
 
+  numbersOnly(event: KeyboardEvent) {
+    const char = event.key;
+    if (!/^[0-9]$/.test(char)) {
+      event.preventDefault();
+    }
+  }
+
   touchedAndInvalid(field: string) {
     const control = this.rsvpForm.get(field);
     return control?.touched && control?.invalid;
   }
 
- async onSubmit() {
+  async onSubmit() {
     if (this.rsvpForm.invalid) {
       this.rsvpForm.markAllAsTouched();
       return;
@@ -48,10 +55,7 @@ export class RsvpComponent {
     this.success = false;
     this.error = false;
 
-    const rsvpData: Rsvp = {
-      ...this.rsvpForm.value,
-      createdAt: Date.now(),
-    };
+    const rsvpData = this.rsvpForm.value;
 
     try {
       await this.rsvpService.submitRsvp(rsvpData);

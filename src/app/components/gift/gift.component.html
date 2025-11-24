@@ -25,12 +25,13 @@
                 <div class="icon">🎁</div>
                 <h3 class="card-title"> Wishlist</h3>
                 <p class="details">Browse our curated list of home essentials.</p>
-                <button (click)="showModal = true" class="visit-btn" >Visit Registry</button>
+                <button (click)="showModal = true" class="visit-btn">Visit Registry</button>
             </div>
         </div>
     </div>
 
-     <app-wish-list-modal *ngIf="showModal" (close)="showModal = false"
-        >
+    <div class="toast" *ngIf="toastMessage()">{{ toastMessage() }}</div>
+
+    <app-wish-list-modal *ngIf="showModal" (close)="showModal = false">
     </app-wish-list-modal>
 </section>

@@ -127,3 +127,40 @@
      background: white;
      color: var(--color-charcoal);
  }
+
+
+
+ .toast {
+     position: fixed;
+     bottom: 20px;
+     left: 50%;
+     transform: translateX(-50%);
+     padding: 12px 20px;
+     background: #333;
+     color: #fff;
+     border-radius: 6px;
+     font-size: 14px;
+     animation: fadeInOut 2s ease forwards;
+     z-index: 9999;
+ }
+
+ @keyframes fadeInOut {
+     0% {
+         opacity: 0;
+         transform: translateX(-50%) translateY(10px);
+     }
+
+     10% {
+         opacity: 1;
+         transform: translateX(-50%) translateY(0);
+     }
+
+     90% {
+         opacity: 1;
+     }
+
+     100% {
+         opacity: 0;
+         transform: translateX(-50%) translateY(10px);
+     }
+ }

@@ -53,6 +53,10 @@
      gap: 1rem;
  }
 
+ .required {
+     color: red;
+ }
+
 
  .form-group label {
      display: block;
@@ -102,6 +106,30 @@
      cursor: not-allowed;
  }
 
+ .success-msg {
+     color: var(--color-charcoal);
+     text-align: center;
+     font-size: 0.875rem;
+     animation: pulse 2s infinite;
+ }
+
+ .error-msg {
+     color: #ef4444;
+     text-align: center;
+     font-size: 0.875rem;
+ }
+
+ @keyframes pulse {
+
+     0%,
+     100% {
+         opacity: 1;
+     }
+
+     50% {
+         opacity: 0.5;
+     }
+ }
 
  @keyframes fadeIn {
      from {
