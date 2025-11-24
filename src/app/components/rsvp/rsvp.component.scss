@@ -121,7 +121,6 @@
     font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: #6b7280;
     margin-bottom: 0.25rem;
 }
 
@@ -147,6 +146,22 @@
     border-bottom-color: var(--color-gold-500);
 }
 
+.placeholder {
+    color: #9ca3af !important;
+    font-weight: 300 !important;
+}
+
+/* Input placeholder */
+.field input::placeholder {
+    color: #9ca3af;
+    font-weight: 300;
+}
+
+/* Select placeholder fallback */
+.field select:invalid {
+    color: #9ca3af;
+    font-weight: 300;
+}
 
 .error {
     color: #f87171;

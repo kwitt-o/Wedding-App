@@ -12,7 +12,7 @@ import { FooterComponent } from './layouts/footer/footer.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NavComponent, HeroComponent, LoveStoryComponent, ScheduleComponent, WishesComponent, RsvpComponent, GiftComponent, FaqComponent, FooterComponent],
+  imports: [NavComponent, HeroComponent, LoveStoryComponent, ScheduleComponent, WishesComponent, RsvpComponent, GiftComponent, FaqComponent, FooterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
